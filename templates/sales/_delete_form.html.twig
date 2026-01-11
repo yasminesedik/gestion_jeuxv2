@@ -1,0 +1,11 @@
+<form method="post"
+      action="{{ path('app_sales_delete', {'id': sale.id}) }}"
+      class="d-inline"
+      onsubmit="return confirm('Delete this sale?');">
+
+  <input type="hidden" name="_token" value="{{ csrf_token('delete' ~ sale.id) }}">
+
+  <button class="btn btn-outline-danger btn-sm px-3">
+    Delete
+  </button>
+</form>

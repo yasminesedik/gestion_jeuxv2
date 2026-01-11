@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+{% block title %}New Game{% endblock %}
+
+{% block body %}
+<div class="mb-5">
+  <h1 class="fw-semibold">Create New Game</h1>
+  <p class="text-muted">Add a new game to your store</p>
+</div>
+
+{{ include('game/_form.html.twig') }}
+{% endblock %}

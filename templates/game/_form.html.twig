@@ -1,0 +1,51 @@
+{{ form_start(form) }}
+
+<div class="card border-0 shadow-lg rounded-4">
+  <div class="card-body p-5">
+
+    <div class="mb-4">
+      <label class="form-label text-muted">Title</label>
+      {{ form_widget(form.title, {'attr': {'class': 'form-control form-control-lg'}}) }}
+      {{ form_errors(form.title) }}
+    </div>
+
+    <div class="row">
+      <div class="col-md-4 mb-4">
+        <label class="form-label text-muted">Price</label>
+        {{ form_widget(form.price, {'attr': {'class': 'form-control form-control-lg'}}) }}
+        {{ form_errors(form.price) }}
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <label class="form-label text-muted">Stock</label>
+        {{ form_widget(form.stock, {'attr': {'class': 'form-control form-control-lg'}}) }}
+        {{ form_errors(form.stock) }}
+      </div>
+
+      <div class="col-md-4 mb-4">
+        <label class="form-label text-muted">Release date</label>
+        {{ form_widget(form.releaseDate, {'attr': {'class': 'form-control form-control-lg'}}) }}
+        {{ form_errors(form.releaseDate) }}
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <label class="form-label text-muted">Category</label>
+      {{ form_widget(form.category, {'attr': {'class': 'form-select form-select-lg'}}) }}
+      {{ form_errors(form.category) }}
+    </div>
+
+  </div>
+
+  <div class="card-footer bg-white border-0 px-5 py-4 d-flex justify-content-between">
+    <a href="{{ path('app_game_index') }}" class="btn btn-light px-4">
+      Cancel
+    </a>
+
+    <button class="btn btn-dark px-5">
+      {{ button_label|default('Save Game') }}
+    </button>
+  </div>
+</div>
+
+{{ form_end(form) }}

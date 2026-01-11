@@ -1,0 +1,12 @@
+{% extends 'base.html.twig' %}
+{% block title %}Edit Sale{% endblock %}
+
+{% block body %}
+<h1 class="h3 mb-4">Edit Sale #{{ sale.id }}</h1>
+
+{{ include('sales/_form.html.twig', {'button_label': 'Update'}) }}
+
+<div class="mt-3">
+    {{ include('sales/_delete_form.html.twig', {sale: sale}) }}
+</div>
+{% endblock %}

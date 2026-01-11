@@ -1,0 +1,31 @@
+{{ form_start(form) }}
+
+<div class="card border-0 shadow-lg rounded-4">
+  <div class="card-body p-5">
+
+    <div class="mb-4">
+      <label class="form-label text-muted">Game</label>
+      {{ form_widget(form.game, {'attr': {'class': 'form-select form-select-lg'}}) }}
+      {{ form_errors(form.game) }}
+    </div>
+
+    <div class="mb-4">
+      <label class="form-label text-muted">Quantity</label>
+      {{ form_widget(form.quantity, {'attr': {'class': 'form-control form-control-lg'}}) }}
+      {{ form_errors(form.quantity) }}
+    </div>
+
+  </div>
+
+  <div class="card-footer bg-white border-0 px-5 py-4 d-flex justify-content-between">
+    <a href="{{ path('app_sales_index') }}" class="btn btn-light px-4">
+      Cancel
+    </a>
+
+    <button class="btn btn-dark px-5">
+      {{ button_label|default('Save Sale') }}
+    </button>
+  </div>
+</div>
+
+{{ form_end(form) }}

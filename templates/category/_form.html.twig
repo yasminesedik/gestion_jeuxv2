@@ -1,0 +1,27 @@
+{{ form_start(form) }}
+
+<div class="card border-0 shadow-lg rounded-4">
+  <div class="card-body p-5">
+
+    <div class="mb-4">
+      <label class="form-label text-muted">Category name</label>
+      {{ form_widget(form.name, {
+        'attr': {'class': 'form-control form-control-lg'}
+      }) }}
+      {{ form_errors(form.name) }}
+    </div>
+
+  </div>
+
+  <div class="card-footer bg-white border-0 px-5 py-4 d-flex justify-content-between">
+    <a href="{{ path('app_category_index') }}" class="btn btn-light px-4">
+      Cancel
+    </a>
+
+    <button class="btn btn-dark px-5">
+      {{ button_label|default('Save Category') }}
+    </button>
+  </div>
+</div>
+
+{{ form_end(form) }}
