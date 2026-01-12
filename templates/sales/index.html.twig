@@ -42,6 +42,10 @@
           <td class="text-muted">
             {{ sale.soldAt|date('d M Y · H:i') }}
           </td>
+          <td>
+  {{ sale.client is not null ? sale.client.fullName : '—' }}
+</td>
+
 
           <td class="text-end">
             <a href="{{ path('app_sales_show', {'id': sale.id}) }}"
