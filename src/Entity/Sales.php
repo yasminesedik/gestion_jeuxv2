@@ -16,11 +16,21 @@ class Sales
     #[ORM\Column]
     private ?int $quantity = null;
 
-    #[ORM\Column]
+    #[ORM\Column(type: 'datetime_immutable')]
     private ?\DateTimeImmutable $soldAt = null;
 
-    #[ORM\ManyToOne(inversedBy: 'sales')]
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
     private ?Game $game = null;
+
+    #[ORM\ManyToOne]
+    #[ORM\JoinColumn(nullable: false)]
+    private ?Client $client = null;
+
+    public function __construct()
+    {
+        $this->soldAt = new \DateTimeImmutable();
+    }
 
     public function getId(): ?int
     {
@@ -35,7 +45,6 @@ class Sales
     public function setQuantity(int $quantity): static
     {
         $this->quantity = $quantity;
-
         return $this;
     }
 
@@ -47,7 +56,6 @@ class Sales
     public function setSoldAt(\DateTimeImmutable $soldAt): static
     {
         $this->soldAt = $soldAt;
-
         return $this;
     }
 
@@ -56,10 +64,20 @@ class Sales
         return $this->game;
     }
 
-    public function setGame(?Game $game): static
+    public function setGame(Game $game): static
     {
         $this->game = $game;
+        return $this;
+    }
 
+    public function getClient(): ?Client
+    {
+        return $this->client;
+    }
+
+    public function setClient(Client $client): static
+    {
+        $this->client = $client;
         return $this;
     }
 }

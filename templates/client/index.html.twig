@@ -1,0 +1,54 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Clients{% endblock %}
+
+{% block body %}
+<div class="d-flex justify-content-between align-items-center mb-5">
+  <div>
+    <h1 class="fw-semibold mb-1">Clients</h1>
+    <p class="text-muted mb-0">Manage your store customers</p>
+  </div>
+  <a href="{{ path('app_client_new') }}" class="btn btn-dark px-4 py-2 shadow-sm">
+    + New Client
+  </a>
+</div>
+
+<div class="card border-0 shadow-lg rounded-4">
+  <div class="card-body p-4">
+    <table class="table align-middle">
+      <thead class="border-bottom text-muted small">
+        <tr>
+          <th>ID</th>
+          <th>Full Name</th>
+          <th>Email</th>
+          <th>Phone</th>
+          <th>Created At</th>
+          <th class="text-end">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+      {% for client in clients %}
+        <tr class="border-bottom">
+          <td class="fw-semibold">#{{ client.id }}</td>
+          <td>{{ client.fullName }}</td>
+          <td class="text-muted">{{ client.email ?? '—' }}</td>
+          <td class="text-muted">{{ client.phone ?? '—' }}</td>
+          <td class="text-muted">{{ client.createdAt|date('d M Y') }}</td>
+          <td class="text-end">
+            <a href="{{ path('app_client_show', {'id': client.id}) }}" class="btn btn-sm btn-light border me-1">View</a>
+            <a href="{{ path('app_client_edit', {'id': client.id}) }}" class="btn btn-sm btn-outline-primary me-1">Edit</a>
+            {{ include('client/_delete_form.html.twig') }}
+          </td>
+        </tr>
+      {% else %}
+        <tr>
+          <td colspan="6" class="text-center text-muted py-5">
+            No clients found
+          </td>
+        </tr>
+      {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+{% endblock %}

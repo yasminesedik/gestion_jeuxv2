@@ -25,6 +25,7 @@
           <th>Price</th>
           <th>Stock</th>
           <th>Release</th>
+          <th>Category</th>
           <th class="text-end">Actions</th>
         </tr>
       </thead>
@@ -49,6 +50,11 @@
           <td class="text-muted">
             {{ game.releaseDate ? game.releaseDate|date('d M Y') : '—' }}
           </td>
+          
+          <td class="text-muted">
+          {{ game.category ? game.category.name : '—' }}
+          </td>
+
 
           <td class="text-end">
             <a href="{{ path('app_game_show', {'id': game.id}) }}"

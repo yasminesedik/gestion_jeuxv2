@@ -1,0 +1,33 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Client{% endblock %}
+
+{% block body %}
+<h1 class="fw-semibold mb-4">Client Details</h1>
+
+<div class="card border-0 shadow-lg rounded-4">
+  <div class="card-body p-5">
+    <div class="row mb-3">
+      <div class="col text-muted">Full Name</div>
+      <div class="col fw-semibold">{{ client.fullName }}</div>
+    </div>
+    <div class="row mb-3">
+      <div class="col text-muted">Email</div>
+      <div class="col">{{ client.email ?? '—' }}</div>
+    </div>
+    <div class="row mb-3">
+      <div class="col text-muted">Phone</div>
+      <div class="col">{{ client.phone ?? '—' }}</div>
+    </div>
+    <div class="row">
+      <div class="col text-muted">Created At</div>
+      <div class="col">{{ client.createdAt|date('d M Y · H:i') }}</div>
+    </div>
+  </div>
+
+  <div class="card-footer bg-white border-0 px-5 py-4 d-flex justify-content-between">
+    <a href="{{ path('app_client_index') }}" class="btn btn-light">Back</a>
+    <a href="{{ path('app_client_edit', {'id': client.id}) }}" class="btn btn-outline-primary">Edit</a>
+  </div>
+</div>
+{% endblock %}

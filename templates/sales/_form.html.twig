@@ -10,6 +10,12 @@
     </div>
 
     <div class="mb-4">
+      <label class="form-label text-muted">Client</label>
+      {{ form_widget(form.client, {'attr': {'class': 'form-select form-select-lg'}}) }}
+      {{ form_errors(form.client) }}
+    </div>
+
+    <div class="mb-4">
       <label class="form-label text-muted">Quantity</label>
       {{ form_widget(form.quantity, {'attr': {'class': 'form-control form-control-lg'}}) }}
       {{ form_errors(form.quantity) }}
@@ -21,7 +27,6 @@
     <a href="{{ path('app_sales_index') }}" class="btn btn-light px-4">
       Cancel
     </a>
-
     <button class="btn btn-dark px-5">
       {{ button_label|default('Save Sale') }}
     </button>
